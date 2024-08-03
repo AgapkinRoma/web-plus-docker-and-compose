@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  backend:
+    container_name: first-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:3000"
+    env_file: ./backend/.env
+
+  frontend:
+    container_name: first-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+
+  my_bd:
+    container_name: postgres
+    volumes:
+      - postgres_data:/data/postgres
+
+    image: postgres
+    env_file: ./backend/.env
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - "3003:8080"
+
+volumes:
+  postgres_data:
