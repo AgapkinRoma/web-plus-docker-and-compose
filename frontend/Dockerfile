@@ -11,7 +11,7 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:1.23.1-alpine as runner
+FROM nginx:latest as runner
 
 WORKDIR /app 
 
