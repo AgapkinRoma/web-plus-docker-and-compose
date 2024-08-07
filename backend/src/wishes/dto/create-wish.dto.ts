@@ -2,6 +2,7 @@ import {
   IsDecimal,
   IsInt,
   IsNotEmpty,
+  IsNumber,
   IsString,
   IsUrl,
   Length,
@@ -19,7 +20,7 @@ export class CreateWishDto {
   @IsUrl()
   image: string;
 
-  @IsDecimal()
+  @IsNumber()
   price: number;
 
   @IsString()
